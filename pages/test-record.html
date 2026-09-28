@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu - 5 Exercise Assessment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/test-record.css">
+</head>
+<body>
+  <div class="test-record-container">
+    <header class="test-record-header">
+      <button id="btnCloseRecording" class="test-record-close-btn" aria-label="Close Recording">✕ Close</button>
+      <div class="test-record-title-group">
+        <h1 class="test-record-title">Squats • 1/5</h1>
+        <span id="recordingTimer" class="test-record-timer">30s</span>
+      </div>
+    </header>
+
+    <main class="test-record-viewport">
+      <video id="videoFeed" class="test-record-video" autoplay muted playsinline webkit-playsinline></video>
+      <canvas id="poseCanvas" class="test-record-canvas"></canvas>
+      <div class="test-record-badges-top"><div id="bodyDetectionStatus" class="test-record-badge">Body Detected: NO</div></div>
+      <div id="positionGuideText" class="test-record-coach-text top">Keep your whole body visible</div>
+      <div id="statusMessage" class="test-record-coach-text middle">Camera starting...</div>
+    </main>
+
+    <footer class="test-record-footer">
+      <div class="test-record-controls">
+        <button id="btnCalibrate" class="test-record-btn-secondary">Calibrate</button>
+        <button id="btnRecord" class="test-record-btn-record" aria-label="Start 5 Exercise Assessment"><div class="test-record-btn-inner"></div></button>
+        <div class="test-record-spacer"><span id="assessmentHint">5 exercises</span></div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="../js/shared.js"></script>
+  <script src="../js/camera-mobile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+  <!-- CRITICAL: Added type="module" -->
+  <script type="module" src="../js/test-record.js"></script>
+</body>
+</html>

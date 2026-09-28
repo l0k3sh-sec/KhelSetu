@@ -1,0 +1,76 @@
+/* Scout Login — screen-specific additions (extends auth-phone.css) */
+
+.scout-login-upload-btn {
+  width: 100%;
+  min-height: 48px;
+  background-color: var(--surface);
+  color: var(--text-heading);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.scout-login-upload-btn:hover {
+  border-color: var(--primary);
+  background-color: var(--bg-main);
+}
+
+.scout-login-upload-btn.has-file {
+  border-style: solid;
+  border-color: var(--accent-teal);
+  color: var(--accent-teal);
+}
+
+.scout-login-file-name {
+  display: block;
+  font-size: 12px;
+  color: var(--text-body);
+  margin-top: 6px;
+}
+
+/* --- Missing Auth UI Elements --- */
+.phone-input-group {
+  display: flex;
+  gap: 8px;
+}
+
+.country-code-select {
+  width: 100px;
+  padding: 0 12px;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  color: var(--text-heading);
+  outline: none;
+  cursor: pointer;
+}
+
+.country-code-select:focus {
+  border-color: var(--primary);
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--text-body);
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.btn-back:hover {
+  color: var(--text-heading);
+}

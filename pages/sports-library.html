@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu — Sports Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/sports-library.css">
+</head>
+<body>
+  <header class="library-header">
+    <button class="library-back-btn" id="sportsLibraryBackBtn" aria-label="Back to dashboard">&#8592; Dashboard</button>
+    <div class="brand-logo">
+      <span class="brand-logo-text" style="font-size:18px;">KhelSetu</span>
+      <span class="brand-logo-dot" aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <main class="library-main">
+    <div class="library-intro">
+      <div>
+        <span class="library-kicker">ATHLETE LEARNING HUB</span>
+        <h1 class="library-title">Sports Library</h1>
+        <p class="library-subtitle">Learn the sport, understand the basics, and progress from Beginner → Intermediate → Pro.</p>
+      </div>
+      <div class="learning-stats" aria-label="Learning progress">
+        <div><strong id="libraryLevelCount">1</strong><span>Level</span></div>
+        <div><strong id="libraryLessonCount">0</strong><span>Lessons explored</span></div>
+      </div>
+    </div>
+
+    <div class="library-toolbar">
+      <input type="text" class="library-search" id="sportsLibrarySearch" placeholder="Search sports...">
+      <div class="level-filter" id="levelFilter" role="tablist" aria-label="Filter by level">
+        <button class="level-filter-btn active" data-level="all">All</button>
+        <button class="level-filter-btn" data-level="beginner">Beginner</button>
+        <button class="level-filter-btn" data-level="intermediate">Intermediate</button>
+        <button class="level-filter-btn" data-level="pro">Pro</button>
+      </div>
+    </div>
+
+    <section class="sports-lib-grid" id="sportsLibraryGrid"></section>
+    <p class="library-empty" id="sportsLibraryEmpty">No sports match your search.</p>
+  </main>
+
+  <div class="lesson-modal" id="lessonModal" aria-hidden="true">
+    <div class="lesson-modal-backdrop" data-close-modal></div>
+    <section class="lesson-modal-panel" role="dialog" aria-modal="true" aria-labelledby="lessonModalTitle">
+      <button class="lesson-close" id="lessonClose" aria-label="Close">×</button>
+      <div class="lesson-modal-header">
+        <div>
+          <span class="lesson-level" id="lessonLevel">BEGINNER</span>
+          <h2 id="lessonModalTitle">Lesson</h2>
+          <p id="lessonModalDescription"></p>
+        </div>
+      </div>
+      <div class="lesson-video-wrap" id="lessonVideoWrap">
+        <div class="lesson-video-placeholder" id="lessonVideoPlaceholder">
+          <div class="placeholder-icon">▶</div>
+          <strong>In-app YouTube lesson</strong>
+          <span>This lesson needs a valid embeddable YouTube video.</span>
+        </div>
+      </div>
+      <div class="lesson-bottom">
+        <div>
+          <strong id="lessonSportName">Sport</strong>
+          <span id="lessonSkillText">Skill focus</span>
+        </div>
+        <a class="lesson-youtube-fallback" id="lessonYoutubeFallback" target="_blank" rel="noopener noreferrer">Find more on YouTube</a>
+      </div>
+    </section>
+  </div>
+
+  <script src="../js/shared.js"></script>
+  <script type="module" src="../js/sports-library.js"></script>
+</body>
+</html>

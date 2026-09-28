@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu - Scout Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/scout-dashboard.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="scout-header">
+    <div class="scout-header-container">
+      <div class="scout-brand">
+        <span class="scout-logo-dot"></span>
+        <h1 class="scout-logo-text">KhelSetu Scout</h1>
+      </div>
+      
+      <div class="scout-search-wrapper">
+        <input type="text" id="scoutSearchInput" class="scout-search-input" placeholder="Search athletes by name...">
+      </div>
+
+      <nav class="scout-nav">
+        <a href="scout-shortlist.html" class="scout-nav-link">Shortlist</a>
+        <a href="../index.html" class="scout-nav-link">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Layout -->
+  <div class="scout-layout-container">
+    
+    <!-- Left Sidebar: Filters -->
+    <aside class="scout-sidebar">
+      <h2 class="scout-sidebar-title">Filters</h2>
+      
+      <div class="scout-filter-group">
+        <label>Age Range</label>
+        <div class="scout-dual-slider-mock" id="filterAgeRange">
+          <input type="number" placeholder="Min" value="14" aria-label="Min Age">
+          <span>-</span>
+          <input type="number" placeholder="Max" value="25" aria-label="Max Age">
+        </div>
+      </div>
+
+      <div class="scout-filter-group" id="filterGender">
+        <label>Gender</label>
+        <div class="scout-checkbox-group">
+          <label><input type="checkbox" checked> Male</label>
+          <label><input type="checkbox"> Female</label>
+        </div>
+      </div>
+
+      <div class="scout-filter-group">
+        <label for="filterState">State</label>
+        <select id="filterState" class="scout-select">
+          <option value="">All States</option>
+        </select>
+      </div>
+
+      <div class="scout-filter-group">
+        <label for="filterDistrict">District</label>
+        <select id="filterDistrict" class="scout-select">
+          <option value="">All Districts</option>
+        </select>
+      </div>
+
+      <div class="scout-filter-group">
+        <label>Height (cm)</label>
+        <div class="scout-dual-slider-mock" id="filterHeightRange">
+          <input type="number" placeholder="Min" value="150" aria-label="Min Height">
+          <span>-</span>
+          <input type="number" placeholder="Max" value="200" aria-label="Max Height">
+        </div>
+      </div>
+
+      <div class="scout-filter-group">
+        <label>Weight (kg)</label>
+        <div class="scout-dual-slider-mock" id="filterWeightRange">
+          <input type="number" placeholder="Min" value="45" aria-label="Min Weight">
+          <span>-</span>
+          <input type="number" placeholder="Max" value="90" aria-label="Max Weight">
+        </div>
+      </div>
+
+      <!-- Updated Sport Category Filter -->
+      <div class="scout-filter-group">
+        <label>Sport Category</label>
+        <div class="scout-chips-group" id="filterSportCategory" style="display: flex; flex-wrap: wrap; gap: 6px; max-height: 220px; overflow-y: auto; padding-right: 4px;">
+          <button class="scout-chip">Track & Field</button>
+          <button class="scout-chip">Cricket</button>
+          <button class="scout-chip">Football</button>
+          <button class="scout-chip">Basketball</button>
+          <button class="scout-chip">Volleyball</button>
+          <button class="scout-chip">Badminton</button>
+          <button class="scout-chip">Tennis</button>
+          <button class="scout-chip">Hockey</button>
+          <button class="scout-chip">Kabaddi</button>
+          <button class="scout-chip">Wrestling</button>
+          <button class="scout-chip">Boxing</button>
+          <button class="scout-chip">Swimming</button>
+          <button class="scout-chip">Table Tennis</button>
+          <button class="scout-chip">Squash</button>
+          <button class="scout-chip">Handball</button>
+          <button class="scout-chip">Basketball 3x3</button>
+          <button class="scout-chip">Kho Kho</button>
+          <button class="scout-chip">Archery</button>
+          <button class="scout-chip">Cycling</button>
+          <button class="scout-chip">Gymnastics</button>
+        </div>
+      </div>
+
+      <div class="scout-filter-group">
+        <label>Talent Score</label>
+        <div class="scout-dual-slider-mock" id="filterTalentScore">
+          <input type="number" placeholder="Min" value="70" aria-label="Min Score">
+          <span>-</span>
+          <input type="number" placeholder="Max" value="100" aria-label="Max Score">
+        </div>
+      </div>
+
+      <div class="scout-filter-group">
+        <label class="scout-toggle-label">
+          <input type="checkbox" id="filterVerifiedOnly" checked>
+          Verified Athletes Only
+        </label>
+      </div>
+
+      <div class="scout-filter-actions">
+        <button id="btnApplyFilters" class="scout-btn-primary">Apply Filters</button>
+        <button id="btnResetFilters" class="scout-btn-ghost">Reset Filters</button>
+      </div>
+    </aside>
+
+    <!-- Right Main Area: Results -->
+    <main class="scout-main-content">
+      <div class="scout-toolbar">
+        <h2 class="scout-results-title">Loading...</h2>
+      </div>
+
+      <div id="athleteResultsGrid" class="scout-results-grid">
+        <p style="grid-column: 1/-1; text-align: center; color: var(--text-body); padding: 40px;">
+          Fetching athlete database...
+        </p>
+      </div>
+    </main>
+  </div>
+  
+  <script src="../js/shared.js"></script>
+  <script type="module" src="../js/scout-dashboard.js"></script>
+</body>
+</html>

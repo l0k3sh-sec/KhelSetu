@@ -1,0 +1,220 @@
+/* Screen 7 — AI Analysis & Processing */
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.test-analyzing-container {
+  width: 100%;
+  max-width: 640px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* AI Brain Animation */
+.test-analyzing-visual {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.test-analyzing-brain-core {
+  width: 64px;
+  height: 64px;
+  background: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  z-index: 2;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+}
+
+.test-analyzing-brain-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  opacity: 0;
+}
+
+.test-analyzing-brain-ring.inner {
+  width: 80px;
+  height: 80px;
+  animation: testAnalyzingPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+.test-analyzing-brain-ring.outer {
+  width: 100px;
+  height: 100px;
+  animation: testAnalyzingPulse 2s infinite cubic-bezier(0.4, 0, 0.6, 1) 0.5s;
+}
+
+@keyframes testAnalyzingPulse {
+  0% { transform: scale(0.8); opacity: 0.8; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Title */
+.test-analyzing-title {
+  margin: 0 0 24px 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-heading);
+  text-align: center;
+}
+
+/* Progress Bar */
+.test-analyzing-progress-wrapper {
+  width: 100%;
+  height: 12px;
+  background: var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.test-analyzing-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary) 0%, #60A5FA 100%);
+  border-radius: 8px;
+  transition: width 0.3s ease-out;
+}
+
+.test-analyzing-progress-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 32px;
+}
+
+/* Steps Card */
+.test-analyzing-steps-card {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  margin-bottom: 32px;
+}
+
+.test-analyzing-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.test-analyzing-step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.test-analyzing-step-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #CBD5E1;
+  background: transparent;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.test-analyzing-step-label {
+  flex-grow: 1;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-body);
+  transition: color 0.3s ease;
+}
+
+.test-analyzing-step-status {
+  font-size: 12px;
+  font-weight: 600;
+  color: #CBD5E1;
+}
+
+/* Step States */
+.status-active .test-analyzing-step-icon {
+  border-color: var(--primary);
+  border-top-color: transparent;
+  animation: testAnalyzingSpin 1s linear infinite;
+}
+.status-active .test-analyzing-step-label {
+  color: var(--primary);
+}
+.status-active .test-analyzing-step-status {
+  color: var(--primary);
+}
+
+.status-done .test-analyzing-step-icon {
+  background: #10B981;
+  border-color: #10B981;
+}
+.status-done .test-analyzing-step-icon::after {
+  content: "\2713";
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+}
+.status-done .test-analyzing-step-label {
+  color: var(--text-heading);
+}
+.status-done .test-analyzing-step-status {
+  color: #10B981;
+}
+
+@keyframes testAnalyzingSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Action Button */
+.test-analyzing-action {
+  width: 100%;
+}
+
+.test-analyzing-btn-primary {
+  width: 100%;
+  background: var(--primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 16px 24px;
+  cursor: pointer;
+  transition: background 150ms ease, transform 100ms ease, opacity 200ms ease;
+}
+
+.test-analyzing-btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.test-analyzing-btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.test-analyzing-btn-primary:disabled {
+  background: var(--border);
+  color: var(--text-body);
+  cursor: not-allowed;
+  opacity: 0.7;
+}

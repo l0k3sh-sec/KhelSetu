@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu — Athlete Onboarding</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/auth-onboarding.css">
+</head>
+<body>
+
+  <main class="onboarding-layout">
+    <div class="onboarding-card">
+      <header class="onboarding-header">
+        <span class="step-indicator">Step 1</span>
+        <h1 class="onboarding-title">Athlete Onboarding</h1>
+        <p class="onboarding-subtitle">Build your Sports Identity</p>
+      </header>
+
+      <form class="onboarding-form" onsubmit="event.preventDefault(); completeProfile();">
+
+        <div class="form-group">
+          <label class="form-label" for="fullNameInput">Full Name</label>
+          <input type="text" class="form-input" id="fullNameInput" value="" required autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="dobInput">Date of Birth</label>
+            <input type="date" class="form-input" id="dobInput" value="2008-04-12">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Gender</label>
+            <div class="gender-toggle" id="genderToggle">
+              <button type="button" class="gender-btn active" data-gender="Male">Male</button>
+              <button type="button" class="gender-btn" data-gender="Female">Female</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="ageDisplay">Age (Auto-calculated)</label>
+          <input type="text" class="form-input readonly-input" id="ageDisplay" value="18 years, 5 months" readonly>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="heightInput">Height (cm) *</label>
+            <input type="number" class="form-input" id="heightInput" value="172" required>
+            <span class="field-hint">* Essential for camera calibration</span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="weightInput">Weight (kg)</label>
+            <input type="number" class="form-input" id="weightInput" value="64">
+          </div>
+        </div>
+
+        <!-- State & District: options are now injected dynamically by auth-onboarding.js
+             from js/india-states-districts.js — no hardcoded <option> tags here anymore -->
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="stateSelect">State</label>
+            <select class="form-select" id="stateSelect"></select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="districtSelect">District</label>
+            <select class="form-select" id="districtSelect"></select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="sportCategorySelect">Current Fitness level</label>
+          <select class="form-select" id="sportCategorySelect">
+            <option value="Track & Field" selected>Beginner</option>
+            <option value="Cricket">Intermediate</option>
+            <option value="Cricket">Expert</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="prevExperienceInput">Previous Experience (optional)</label>
+          <input type="text" class="form-input" id="prevExperienceInput" placeholder="District level school athletics">
+        </div>
+
+        <button type="submit" class="onboarding-btn-primary" id="btnCompleteProfile">COMPLETE PROFILE</button>
+      </form>
+    </div>
+  </main>
+
+  <script src="../js/shared.js"></script>
+  <script type="module" src="../js/auth-onboarding.js"></script>
+</body>
+</html>

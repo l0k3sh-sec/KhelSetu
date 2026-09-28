@@ -1,0 +1,203 @@
+/* KhelSetu — Sports Library */
+
+.library-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.library-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-body);
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px 4px;
+}
+.library-back-btn:hover { color: var(--text-heading); }
+
+.library-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 20px 48px;
+}
+
+.library-intro {
+  margin-bottom: 20px;
+}
+.library-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin-bottom: 4px;
+}
+.library-subtitle {
+  font-size: 14px;
+  color: var(--text-body);
+}
+.library-count {
+  font-size: 12px;
+  color: var(--text-body);
+  font-weight: 600;
+}
+
+.library-search {
+  width: 100%;
+  min-height: 48px;
+  margin: 16px 0 20px;
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  color: var(--text-heading);
+  background: var(--surface);
+}
+.library-search:focus {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.sports-lib-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+
+.sport-lib-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  transition: border-color 0.15s ease, transform 0.1s ease;
+}
+.sport-lib-card:hover {
+  border-color: var(--primary);
+}
+
+.sport-lib-icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.sport-lib-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 6px;
+}
+
+.sport-lib-desc {
+  font-size: 13px;
+  color: var(--text-body);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.sport-lib-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.sport-tag {
+  display: inline-flex;
+  align-items: center;
+  background: #EFF6FF;
+  color: var(--primary);
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+
+.sport-lib-video-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  transition: opacity 0.15s ease, transform 0.1s ease;
+}
+
+.sport-lib-video-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.sport-lib-video-btn:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+.library-empty {
+  display: none;
+  text-align: center;
+  color: var(--text-body);
+  font-size: 14px;
+  padding: 40px 0;
+}
+
+@media (max-width: 480px) {
+  .sports-lib-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Learning hub additions */
+.library-kicker{display:block;font-size:10px;font-weight:800;letter-spacing:1.4px;color:var(--primary);margin-bottom:5px}
+.library-intro{display:flex;align-items:flex-end;justify-content:space-between;gap:20px}
+.learning-stats{display:flex;gap:8px;flex-shrink:0}
+.learning-stats div{min-width:82px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:var(--surface);text-align:center}
+.learning-stats strong{display:block;font-size:19px;color:var(--text-heading)}
+.learning-stats span{display:block;font-size:10px;color:var(--text-body);font-weight:700}
+.library-toolbar{display:flex;align-items:center;gap:10px;margin:16px 0 20px;flex-wrap:wrap}
+.library-toolbar .library-search{flex:1;min-width:220px;margin:0}
+.level-filter{display:flex;gap:5px;flex-wrap:wrap}
+.level-filter-btn{border:1px solid var(--border);background:var(--surface);color:var(--text-body);border-radius:8px;padding:9px 11px;font:700 11px var(--font-main);cursor:pointer}
+.level-filter-btn.active{background:var(--primary);border-color:var(--primary);color:#fff}
+.sport-card-top{display:flex;align-items:center;justify-content:space-between}
+.sport-progress{font-size:10px;font-weight:800;color:var(--text-body);background:#f4f7fb;border-radius:999px;padding:5px 8px}
+.sport-skill-line{margin:12px 0 10px;padding-top:10px;border-top:1px solid var(--border);font-size:10px;color:var(--text-body)}
+.sport-skill-line span{display:block;text-transform:uppercase;letter-spacing:.5px;font-weight:800;margin-bottom:3px}.sport-skill-line strong{display:block;font-size:11px;color:var(--text-heading)}
+.sport-levels{display:grid;gap:6px}
+.lesson-card{width:100%;display:grid;grid-template-columns:28px 1fr 18px;align-items:center;text-align:left;gap:7px;border:1px solid var(--border);background:var(--surface);border-radius:9px;padding:8px;cursor:pointer;color:var(--text-heading);font-family:var(--font-main)}
+.lesson-card:hover{border-color:var(--primary);transform:translateY(-1px)}
+.lesson-card.has-video{background:#f8fbff}.lesson-card:not(.has-video){opacity:.78}
+.lesson-card.done{border-color:var(--primary)}
+.lesson-card-icon{font-size:15px;text-align:center}.lesson-card-copy b{display:block;font-size:9px;letter-spacing:.6px}.lesson-card-copy small{display:block;font-size:10px;color:var(--text-body);margin-top:2px}.lesson-status{font-size:15px;font-weight:800;color:var(--primary);text-align:center}
+.lesson-modal{position:fixed;inset:0;display:none;z-index:100;background:rgba(12,18,28,.68);padding:20px}.lesson-modal.open{display:flex;align-items:center;justify-content:center}.modal-open{overflow:hidden}
+.lesson-modal-backdrop{position:absolute;inset:0}.lesson-modal-panel{position:relative;width:min(920px,100%);max-height:calc(100vh - 40px);overflow:auto;background:var(--surface);border-radius:18px;box-shadow:0 20px 70px rgba(0,0,0,.28);padding:18px}
+.lesson-close{position:absolute;right:12px;top:10px;width:36px;height:36px;border:0;border-radius:50%;background:#f2f4f7;color:var(--text-heading);font-size:25px;cursor:pointer;z-index:2}.lesson-modal-header{padding:4px 42px 14px 4px}.lesson-level{font-size:9px;font-weight:800;letter-spacing:1px;color:var(--primary)}.lesson-modal-header h2{font-size:21px;margin:4px 0}.lesson-modal-header p{font-size:12px;color:var(--text-body);margin:0;line-height:1.5}
+.lesson-video-wrap{width:100%;aspect-ratio:16/9;background:#0d1117;border-radius:12px;overflow:hidden}.lesson-video{width:100%;height:100%;border:0;display:block}.lesson-video-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:7px;color:#fff;text-align:center;padding:20px}.lesson-video-placeholder span{font-size:11px;opacity:.72}.placeholder-icon{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--primary);font-size:18px}
+.lesson-bottom{display:flex;justify-content:space-between;gap:15px;align-items:center;padding:13px 4px 2px}.lesson-bottom strong,.lesson-bottom span{display:block}.lesson-bottom strong{font-size:13px}.lesson-bottom span{font-size:11px;color:var(--text-body);margin-top:3px}.lesson-youtube-fallback{font-size:11px;font-weight:800;color:var(--primary);text-decoration:none}.lesson-youtube-fallback:hover{text-decoration:underline}
+@media(max-width:650px){.library-intro{align-items:flex-start;flex-direction:column}.learning-stats{width:100%}.learning-stats div{flex:1}.lesson-modal{padding:8px}.lesson-modal-panel{max-height:calc(100vh - 16px);padding:12px}.lesson-bottom{align-items:flex-start;flex-direction:column}.lesson-youtube-fallback{margin-top:3px}}
+
+/* In-app video player */
+.lesson-video-wrap{background:#080b10;border-radius:18px;overflow:hidden;min-height:320px;display:flex;align-items:center;justify-content:center}
+.lesson-video{display:block;width:100%;aspect-ratio:16/9;border:0;background:#000}
+.lesson-card.has-video{cursor:pointer}
+.lesson-card.has-video::after{content:'VIDEO';font-size:9px;font-weight:800;letter-spacing:.08em;margin-left:auto;opacity:.7}

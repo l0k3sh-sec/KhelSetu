@@ -1,0 +1,226 @@
+/* Scout Shortlist - Screen Specific Styles */
+
+.scout-shortlist-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+/* Header */
+.scout-shortlist-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.scout-shortlist-back-btn {
+  background: none;
+  border: none;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+}
+
+.scout-shortlist-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -1px;
+}
+
+.scout-shortlist-title span {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-body);
+}
+
+/* Tabs */
+.scout-shortlist-tabs {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  margin-bottom: 24px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.scout-shortlist-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.scout-shortlist-tab {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-heading);
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.scout-shortlist-tab.active {
+  background: var(--primary);
+  color: #FFFFFF;
+  border-color: var(--primary);
+}
+
+/* Grid */
+.scout-shortlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+/* Cards */
+.scout-shortlist-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  transition: border-color 200ms ease;
+}
+
+.scout-shortlist-card:hover {
+  border-color: var(--primary);
+}
+
+.scout-shortlist-checkbox-wrapper {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: block;
+  cursor: pointer;
+}
+
+.scout-shortlist-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: var(--primary);
+}
+
+.scout-shortlist-card-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.scout-shortlist-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--text-heading);
+  flex-shrink: 0;
+}
+
+.scout-shortlist-meta {
+  flex-grow: 1;
+}
+
+.scout-shortlist-name {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.scout-shortlist-detail {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-body);
+}
+
+.scout-shortlist-score {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+/* Footer Actions */
+.scout-shortlist-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: var(--surface);
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 -4px 30px rgba(0,0,0,0.03);
+}
+
+.scout-shortlist-spacer {
+  flex-grow: 1;
+}
+
+.scout-shortlist-btn-primary,
+.scout-shortlist-btn-secondary,
+.scout-shortlist-btn-danger {
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 100ms;
+}
+
+.scout-shortlist-btn-primary:active,
+.scout-shortlist-btn-secondary:active,
+.scout-shortlist-btn-danger:active {
+  transform: scale(0.95);
+}
+
+.scout-shortlist-btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+  border: none;
+}
+
+.scout-shortlist-btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.scout-shortlist-btn-primary:disabled {
+  background: var(--border);
+  color: var(--text-body);
+  cursor: not-allowed;
+  transform: none;
+}
+
+.scout-shortlist-btn-secondary {
+  background: var(--surface);
+  color: var(--text-heading);
+  border: 1px solid var(--border);
+}
+
+.scout-shortlist-btn-secondary:hover {
+  background: var(--bg-main);
+}
+
+.scout-shortlist-btn-danger {
+  background: var(--surface);
+  color: var(--danger);
+  border: 1px solid var(--danger);
+}
+
+.scout-shortlist-btn-danger:hover {
+  background: var(--danger-bg);
+}

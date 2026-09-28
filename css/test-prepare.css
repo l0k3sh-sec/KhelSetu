@@ -1,0 +1,311 @@
+/* Screen 5 — Test Preparation */
+
+.test-prepare-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Header */
+.test-prepare-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.test-prepare-back-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-main);
+  font-weight: 600;
+  color: var(--text-body);
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.test-prepare-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+/* Animated Illustration */
+.test-prepare-illustration-wrapper {
+  background: #DBEAFE;
+  border-radius: 16px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.test-prepare-anim-figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: testPrepareJump 2s infinite cubic-bezier(0.28, 0.84, 0.42, 1);
+}
+
+.test-prepare-anim-head {
+  width: 24px;
+  height: 24px;
+  background: var(--primary);
+  border-radius: 50%;
+  margin-bottom: 4px;
+}
+
+.test-prepare-anim-body {
+  width: 16px;
+  height: 48px;
+  background: var(--primary);
+  border-radius: 8px;
+}
+
+@keyframes testPrepareJump {
+  0%, 100% { transform: translateY(20px) scaleY(0.9); }
+  50% { transform: translateY(-30px) scaleY(1.1); }
+}
+
+/* Cards */
+.test-prepare-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.test-prepare-section-title {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-heading);
+  display: block;
+}
+
+/* Instructions List */
+.test-prepare-list {
+  margin: 0;
+  padding-left: 20px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: var(--text-heading);
+}
+
+.test-prepare-list li {
+  margin-bottom: 8px;
+}
+
+/* Environment Checklist */
+.test-prepare-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.test-prepare-check-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--bg-main);
+  transition: background-color 300ms ease;
+}
+
+.test-prepare-check-indicator {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid #94A3B8;
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 300ms ease;
+}
+
+.test-prepare-check-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-body);
+  transition: color 300ms ease;
+}
+
+/* Checklist "Done" State */
+.test-prepare-check-item.done {
+  background: #ECFDF5;
+}
+
+.test-prepare-check-item.done .test-prepare-check-indicator {
+  background: #10B981;
+  border-color: #10B981;
+  animation: testPreparePop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.test-prepare-check-item.done .test-prepare-check-indicator::after {
+  content: "\2713";
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.test-prepare-check-item.done .test-prepare-check-text {
+  color: #10B981;
+}
+
+@keyframes testPreparePop {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Input Fields */
+.test-prepare-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.test-prepare-input {
+  width: 100%;
+  padding: 12px 40px 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-heading);
+  appearance: none;
+}
+
+.test-prepare-input:focus {
+  outline: 2px solid var(--primary);
+  border-color: transparent;
+}
+
+.test-prepare-input-suffix {
+  position: absolute;
+  right: 16px;
+  font-weight: 600;
+  color: var(--text-body);
+  pointer-events: none;
+}
+
+/* Actions */
+.test-prepare-action-bar {
+  margin-top: 8px;
+  margin-bottom: 32px;
+}
+
+.test-prepare-btn-primary {
+  width: 100%;
+  background: var(--primary);
+  color: white;
+  padding: 16px 24px;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 100ms ease, background-color 200ms ease, opacity 200ms ease;
+}
+
+.test-prepare-btn-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.test-prepare-btn-primary:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+.test-prepare-btn-primary:disabled {
+  background: var(--border);
+  color: var(--text-body);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+<<<<<<< HEAD
+
+
+/* Sport recommendation preference */
+.recommendation-preference-card { margin-top: 18px; }
+.recommendation-preference-heading { margin-bottom: 14px; }
+.recommendation-preference-subtitle {
+  margin: -4px 0 0;
+  color: var(--text-body);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.sport-preference-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.sport-preference-option { display: block; cursor: pointer; margin: 0; }
+.sport-preference-option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.sport-preference-card {
+  position: relative;
+  min-height: 108px;
+  padding: 14px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .15s ease;
+}
+.sport-preference-card:hover { transform: translateY(-1px); }
+.sport-preference-icon { font-size: 24px; line-height: 1; }
+.sport-preference-copy { display: flex; flex-direction: column; gap: 3px; }
+.sport-preference-copy strong { color: var(--text-heading); font-size: 14px; }
+.sport-preference-copy small { color: var(--text-body); font-size: 10px; line-height: 1.35; }
+.sport-preference-radio {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  background: var(--surface);
+}
+.sport-preference-option input:checked + .sport-preference-card {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 12%, transparent);
+}
+.sport-preference-option input:checked + .sport-preference-card .sport-preference-radio {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 4px var(--surface);
+  background: var(--primary);
+}
+.sport-preference-message {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--text-body);
+}
+.sport-preference-message.selected { color: var(--primary); font-weight: 600; }
+
+@media (max-width: 560px) {
+  .sport-preference-options { grid-template-columns: 1fr; }
+  .sport-preference-card { min-height: auto; flex-direction: row; align-items: center; }
+  .sport-preference-copy small { font-size: 11px; }
+}
+=======
+>>>>>>> e9199e180df81b64a67cf8fe8546304c2c846031

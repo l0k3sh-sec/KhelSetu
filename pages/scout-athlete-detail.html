@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu - Athlete Dossier</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/scout-athlete-detail.css">
+</head>
+<body>
+  <div class="scout-detail-container">
+    
+    <header class="scout-detail-header">
+      <button class="scout-detail-back-btn" id="btnBackToDashboard" aria-label="Go back">&larr; Back</button>
+<<<<<<< HEAD
+      <h1 class="scout-detail-title"><span id="detailTitleLabel">Athlete Dossier: </span><span id="headerAthleteName">Loading...</span></h1>
+=======
+      <h1 class="scout-detail-title">Athlete Dossier: <span id="headerAthleteName">Loading...</span></h1>
+>>>>>>> e9199e180df81b64a67cf8fe8546304c2c846031
+    </header>
+
+    <main class="scout-detail-grid">
+      <!-- Left Column: Visuals & Analysis -->
+      <section class="scout-detail-left-col">
+        <div class="scout-detail-card scout-detail-profile-card">
+          <div class="scout-detail-profile-top">
+            <img id="dossierProfilePhoto" src="" alt="Profile Photo" class="scout-detail-avatar" style="opacity: 0; transition: opacity 0.3s;">
+            <div class="scout-detail-score-wrapper">
+              <span class="scout-detail-score-label">Talent Score</span>
+              <div class="scout-detail-score"><span id="dossierScoreBadge">--</span><span>/100</span></div>
+<<<<<<< HEAD
+              <span class="scout-detail-rank-badge" id="dossierRankBadge" style="display:none;">&#127942; Rank --</span>
+=======
+>>>>>>> e9199e180df81b64a67cf8fe8546304c2c846031
+            </div>
+          </div>
+        </div>
+
+        <div class="scout-detail-card">
+          <h2 class="scout-detail-section-title">Performance Radar</h2>
+          <div id="dossierSpiderChart" class="scout-detail-chart-placeholder" style="position: relative; height: 250px; width: 100%;">
+            <span class="scout-detail-placeholder-text">Awaiting Test Completion</span>
+          </div>
+        </div>
+
+        <div class="scout-detail-card scout-detail-analysis-block">
+          <h2 class="scout-detail-section-title">AI Analysis</h2>
+          <p id="dossierAiAnalysisText">Not enough biometric data to generate an AI analysis yet.</p>
+        </div>
+      </section>
+
+      <!-- Right Column: Data Tables -->
+      <section class="scout-detail-right-col">
+        <div class="scout-detail-card">
+          <h2 class="scout-detail-section-title">Personal Information</h2>
+          <table class="scout-detail-table">
+            <tbody>
+              <tr>
+                <th>Full Name</th>
+                <td id="dtlName">--</td>
+              </tr>
+              <tr>
+                <th>Age & DOB</th>
+                <td id="dtlAgeDob">--</td>
+              </tr>
+              <tr>
+                <th>Gender</th>
+                <td id="dtlGender">--</td>
+              </tr>
+              <tr>
+                <th>Location</th>
+                <td id="dtlLocation">--</td>
+              </tr>
+              <tr>
+                <th>Height</th>
+                <td id="dtlHeight">--</td>
+              </tr>
+              <tr>
+                <th>Weight</th>
+                <td id="dtlWeight">--</td>
+              </tr>
+              <tr>
+                <th>Primary Sport</th>
+                <td id="dtlSport">--</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        
+
+          <div class="scout-detail-games-suggestion">
+            <h3 class="scout-detail-subsection-title">Suggested Games</h3>
+            <div class="scout-detail-games-grid" id="dossierGamesSuggestion" style="display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+<<<<<<< HEAD
+=======
+        </div>
+>>>>>>> e9199e180df81b64a67cf8fe8546304c2c846031
+
+        <div class="scout-detail-card">
+          <h2 class="scout-detail-section-title">Previous Tests</h2>
+          <ul class="scout-detail-previous-tests-list" id="dossierPreviousTests">
+            <li style="text-align: center; color: var(--text-body); padding: 12px;">No attempt history found.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer Actions -->
+    <footer class="scout-detail-actions">
+      <button id="btnAddToShortlist" class="scout-detail-btn-primary">Add to Shortlist</button>
+      <button id="btnRequestContact" class="scout-detail-btn-secondary">Request Contact</button>
+      <button id="btnExportPdf" class="scout-detail-btn-secondary">Export PDF</button>
+      <button id="btnFlagReview" class="scout-detail-btn-danger">Flag for Review</button>
+    </footer>
+    
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/shared.js"></script>
+  <!-- CRITICAL: Added type="module" -->
+  <script type="module" src="../js/scout-athlete-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu — Verify Phone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/auth-verify.css">
+</head>
+<body>
+  <main class="verify-layout">
+    <div class="verify-card">
+      <button type="button" class="verify-back-btn" onclick="history.back()">&#8592; Back</button>
+
+      <header class="verify-header">
+        <h1 class="verify-title">Verify Phone</h1>
+        <p class="verify-subtitle" id="verifySubtitle">Code sent to +91 98765-43210</p>
+      </header>
+
+      <form class="verify-form" onsubmit="event.preventDefault(); verifyOtp();">
+        <div class="otp-input-group" id="otpInputGroup">
+          <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+          <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+          <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+          <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+          <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+          <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric" required />
+        </div>
+
+        <div class="verify-resend-container">
+          <span class="resend-timer" id="resendTimer">Resend Code in 00:28</span>
+          <button type="button" class="btn-resend" id="btnResendOtp" disabled onclick="resendOtpCode()">Resend Code</button>
+        </div>
+
+        <button type="submit" class="verify-btn-primary" id="btnVerifyOtp">VERIFY</button>
+      </form>
+    </div>
+  </main>
+  <script src="../js/shared.js"></script>
+  <script src="../js/auth-verify.js"></script>
+</body>
+</html>

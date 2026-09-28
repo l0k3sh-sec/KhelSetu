@@ -1,0 +1,111 @@
+/* Notification Panel - Screen Specific Styles */
+
+/* Athlete screens are mobile-first */
+.notification-container {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.notification-back-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+  padding: 0;
+}
+
+.notification-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-heading);
+  letter-spacing: -0.5px;
+}
+
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Card Design System */
+.contact-request-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+.notification-message {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-body);
+}
+
+.notification-message strong {
+  color: var(--text-heading);
+  font-weight: 700;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 12px;
+}
+
+/* Primary Button - Small */
+.notification-btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: transform 100ms ease;
+}
+
+.notification-btn-primary:active {
+  transform: scale(0.95);
+}
+
+.notification-btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+/* Ghost Button - Small */
+.notification-btn-ghost {
+  background: transparent;
+  color: var(--text-body);
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background 150ms ease, transform 100ms ease;
+}
+
+.notification-btn-ghost:active {
+  transform: scale(0.95);
+}
+
+.notification-btn-ghost:hover {
+  background: var(--border);
+  color: var(--text-heading);
+}

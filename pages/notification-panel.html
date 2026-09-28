@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu - Notifications</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/notification-panel.css">
+</head>
+<body>
+  
+  <div class="notification-container">
+    <!-- Header -->
+    <header class="notification-header">
+      <button class="notification-back-btn" id="btnBack" aria-label="Go back">&larr; Back</button>
+      <h1 class="notification-title">Notifications</h1>
+    </header>
+
+    <!-- Notifications List Container -->
+    <main id="contactRequestsList" class="notification-list">
+      <!-- JavaScript will inject cards or the empty state here -->
+    </main>
+  </div>
+
+  <script src="../js/shared.js"></script>
+  <!-- CRITICAL: type="module" is required for Firebase -->
+  <script type="module" src="../js/notification-panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu - Test Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/test-results.css">
+</head>
+<body>
+
+  <main class="test-results-container">
+    
+    <header class="test-results-header">
+      <h1 class="test-results-title">Session Complete!</h1>
+      <p class="test-results-subtitle">Great job pushing your limits today.</p>
+    </header>
+
+    <section class="test-results-score-section">
+      <div id="sessionScoreBadge" class="test-results-score-badge">
+        78<span>/100</span>
+      </div>
+      <h2 class="test-results-badge-text">Your Physical Profile</h2>
+    </section>
+
+    <section class="results-section">
+      <div class="results-section-heading">
+        <h2>Your Physical Profile</h2>
+        <p>Five test results converted into simple 0–100 physical scores.</p>
+      </div>
+      <section id="physicalProfileContainer" class="physical-profile-card"></section>
+      <p id="resultsDataNotice" class="results-data-notice" hidden></p>
+    </section>
+
+    <!-- Dynamic Results Container -->
+    <section class="results-section">
+      <div class="results-section-heading">
+        <h2>Exercise Results</h2>
+        <p>Your measured performance during each 30-second test.</p>
+      </div>
+      <section id="resultsContainer" class="test-results-list">
+      <article class="exercise-result-card"><header class="exercise-result-header"><h3 class="exercise-result-title">Loading assessment...</h3></header></article>
+      </section>
+    </section>
+
+    <section class="results-section sports-section">
+      <div class="results-section-heading">
+        <h2>Sports to Explore</h2>
+        <p>These scores compare your physical profile with the initial physical-demand model for 20 sports.</p>
+      </div>
+      <section id="sportsRecommendationContainer" class="sports-recommendation-list"></section>
+      <p class="results-disclaimer">This is an initial screening tool, not a guarantee of sporting success. The scoring model is a prototype and should be validated with real athlete/reference data before being used for selection decisions.</p>
+    </section>
+
+   <footer class="test-results-actions">
+  <div class="test-results-btn-col">
+    <button id="btnBackToDashboard" class="btn-primary" style="width: 100%;">Back to Dashboard</button>
+    <button id="btnRetakeTest" class="btn-ghost" style="width: 100%;">Retake</button>
+  </div>
+</footer>
+
+  </main>
+  
+  <script src="../js/shared.js"></script>
+  <!-- CRITICAL: Added type="module" so Firebase imports work -->
+  <script type="module" src="../js/test-results.js?v=6"></script>
+</body>
+</html>
+</body>
+</html>

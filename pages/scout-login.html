@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu — Scout Sign In</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/auth-phone.css">
+  <link rel="stylesheet" href="../css/scout-login.css">
+</head>
+<body>
+
+  <main class="auth-layout">
+    <div class="auth-card">
+
+      <header class="auth-header">
+        <div class="auth-brand">
+          <span class="auth-logo-text">KhelSetu Scout</span>
+          <span class="auth-logo-dot" aria-hidden="true"></span>
+        </div>
+        <p class="auth-subtitle">Sign in to discover grassroots talent</p>
+      </header>
+
+      <!-- Section 1: Phone/Email Entry -->
+      <div id="phoneEntrySection">
+        <div class="auth-toggle-group" role="tablist" style="margin-bottom: 20px;">
+          <button class="auth-toggle-btn active" id="authTogglePhone" role="tab" aria-selected="true">Phone</button>
+          <button class="auth-toggle-btn" id="authToggleEmail" role="tab" aria-selected="false">Email</button>
+        </div>
+
+        <form class="auth-form" id="authForm">
+          <div id="authPhoneFields" class="auth-field-group">
+            <label class="auth-label">Phone Number</label>
+            <div class="phone-input-group">
+              <select class="country-code-select" id="countryCodeSelect">
+                <option value="+91">+91 (IND)</option>
+              </select>
+              <input type="tel" class="auth-input" id="phoneInput" placeholder="98765 43210" pattern="[0-9]*" maxlength="10">
+            </div>
+          </div>
+
+          <div id="authEmailFields" class="auth-field-group auth-hidden">
+            <label class="auth-label">Email Address</label>
+            <input type="email" class="auth-input" id="emailInput" placeholder="scout@academy.com">
+          </div>
+
+          <div class="auth-terms">
+            <input type="checkbox" class="auth-checkbox" id="termsCheckbox" checked>
+            <label class="auth-terms-label" for="termsCheckbox">I agree to KhelSetu's Terms of Service and Privacy Policy.</label>
+          </div>
+
+          <button type="submit" class="auth-btn-primary" id="btnSendOtp">Send OTP</button>
+        </form>
+      </div>
+
+      <!-- Section 2: OTP Verification -->
+      <div id="otpVerificationSection" class="auth-hidden">
+        <button class="btn-back" id="btnBackToPhone">&#8592; Back</button>
+        <h2 style="font-size: 20px; color: var(--text-heading); margin-bottom: 8px;">Verify it's you</h2>
+        <p class="auth-subtitle" id="verifySubtitle">Code sent</p>
+        
+        <form class="auth-form" id="verifyForm">
+          <div class="otp-input-group" id="otpInputGroup">
+            <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric">
+            <input type="text" class="otp-box" maxlength="1" pattern="[0-9]" inputmode="numeric">
+          </div>
+          <button type="submit" class="auth-btn-primary" id="btnVerifyOtp">VERIFY</button>
+          <div class="resend-wrapper" style="text-align: center; margin-top: 16px;">
+            <span class="resend-timer" id="resendTimer"></span>
+            <button type="button" class="btn-ghost" id="btnResendOtp" disabled>Resend OTP</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Section 3: New Scout Registration (Hidden initially) -->
+      <div id="scoutRegistrationSection" class="auth-hidden">
+        <h2 style="font-size: 20px; color: var(--text-heading); margin-bottom: 8px;">Scout Verification</h2>
+        <p class="auth-subtitle">Complete your profile to access the scout dashboard.</p>
+        
+        <form class="auth-form" id="scoutRegistrationForm">
+          <div class="auth-field-group">
+            <label class="auth-label" for="scoutOrgInput">Organization / Academy Name</label>
+            <input type="text" class="auth-input" id="scoutOrgInput" placeholder="City Lions Sports Academy" required>
+          </div>
+
+          <div class="auth-field-group">
+            <label class="auth-label" for="scoutDocInput">Verification Document</label>
+            <p class="auth-instruction">Upload an ID card, appointment letter, or scouting license</p>
+            <input type="file" id="scoutDocInput" class="scout-login-file-input" accept=".pdf,.jpg,.jpeg,.png" hidden required>
+            <button type="button" class="scout-login-upload-btn" id="btnUploadVerificationDoc">&#128206; Upload Document</button>
+            <span class="scout-login-file-name" id="scoutDocFileName"></span>
+          </div>
+
+          <button type="submit" class="auth-btn-primary" id="btnCompleteScoutReg">Submit for Verification</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../js/shared.js"></script>
+  <!-- NOTE: Added type="module" here -->
+  <script type="module" src="../js/scout-login.js"></script> 
+</body>
+</html>

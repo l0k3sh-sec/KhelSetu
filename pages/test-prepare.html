@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu - Test Preparation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/test-prepare.css">
+  
+  <style>
+    /* FIX: Force the video and canvas to overlap perfectly inside the mobile card */
+    .test-prepare-camera-wrap {
+      position: relative;
+      width: 100%;
+      min-height: 400px; /* Gives the camera a proper mobile viewport */
+      background-color: #000;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    #prepareVideo, #prepareCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    #prepareCanvas {
+      z-index: 10; /* Ensures the skeleton draws OVER the video */
+    }
+    
+    .test-prepare-camera-message, 
+    .test-prepare-camera-select, 
+    .test-prepare-retry-btn {
+      position: relative;
+      z-index: 20; /* Keeps UI text on top of everything */
+    }
+  </style>
+</head>
+<body>
+  <div class="test-prepare-container">
+    
+    <!-- Header -->
+    <header class="test-prepare-header">
+      <button id="testPrepareBackBtn" class="test-prepare-back-btn" aria-label="Go back">&larr; Back</button>
+      <h1 class="test-prepare-title">5-Exercise Fitness Assessment</h1>
+    </header>
+
+    <!-- Animated Illustration -->
+    <div class="test-prepare-illustration-wrapper">
+      <div class="test-prepare-anim-figure">
+        <div class="test-prepare-anim-head"></div>
+        <div class="test-prepare-anim-body"></div>
+      </div>
+    </div>
+
+    <!-- Instructions -->
+    <section class="test-prepare-card">
+      <h2 class="test-prepare-section-title">Instructions:</h2>
+      <ol class="test-prepare-list">
+        <li>Place phone on flat surface</li>
+        <li>Ensure full body is visible</li>
+        <li>Keep the phone steady on a stand or flat surface</li>
+        <li>Use portrait mode and keep your full body inside the guide area</li>
+        <li>You will complete squats, push-ups, side lunges, jumping jacks and jump</li>
+      </ol>
+    </section>
+
+    <!-- Live camera used for real environment checks -->
+    <section class="test-prepare-camera-card">
+      <div class="test-prepare-camera-wrap">
+        <video id="prepareVideo" autoplay muted playsinline></video>
+        <canvas id="prepareCanvas"></canvas>
+        <div id="prepareCameraMessage" class="test-prepare-camera-message">Starting camera...</div>
+        <select id="prepareCameraDeviceSelect" class="test-prepare-camera-select" hidden></select>
+        <button id="btnRetryCamera" class="test-prepare-retry-btn" type="button" hidden>Retry Camera</button>
+      </div>
+    </section>
+
+<<<<<<< HEAD
+    <!-- Recommendation Preference -->
+    <section class="test-prepare-card recommendation-preference-card">
+      <div class="recommendation-preference-heading">
+        <h2 class="test-prepare-section-title">What type of sports would you like to explore?</h2>
+        <p class="recommendation-preference-subtitle">KhelSetu will use your choice together with your fitness results to personalize your recommendations.</p>
+      </div>
+
+      <div id="sportPreferenceGroup" class="sport-preference-options" role="radiogroup" aria-label="Preferred sports environment">
+        <label class="sport-preference-option">
+          <input type="radio" name="sportEnvironment" value="outdoor">
+          <span class="sport-preference-card">
+            <span class="sport-preference-icon">🌳</span>
+            <span class="sport-preference-copy">
+              <strong>Outdoor</strong>
+              <small>Sports played mainly outdoors</small>
+            </span>
+            <span class="sport-preference-radio"></span>
+          </span>
+        </label>
+
+        <label class="sport-preference-option">
+          <input type="radio" name="sportEnvironment" value="indoor">
+          <span class="sport-preference-card">
+            <span class="sport-preference-icon">🏟️</span>
+            <span class="sport-preference-copy">
+              <strong>Indoor</strong>
+              <small>Sports played mainly indoors</small>
+            </span>
+            <span class="sport-preference-radio"></span>
+          </span>
+        </label>
+
+        <label class="sport-preference-option">
+          <input type="radio" name="sportEnvironment" value="both">
+          <span class="sport-preference-card">
+            <span class="sport-preference-icon">🌍</span>
+            <span class="sport-preference-copy">
+              <strong>Both</strong>
+              <small>Show indoor and outdoor options</small>
+            </span>
+            <span class="sport-preference-radio"></span>
+          </span>
+        </label>
+      </div>
+
+      <p id="sportPreferenceMessage" class="sport-preference-message" role="status" aria-live="polite">
+        Select one option to personalize your recommendations.
+      </p>
+    </section>
+
+=======
+>>>>>>> e9199e180df81b64a67cf8fe8546304c2c846031
+    <!-- Environment Check -->
+    <section class="test-prepare-card">
+      <h2 class="test-prepare-section-title">Environment Check</h2>
+      <div class="test-prepare-checks">
+        
+        <div id="checkLighting" class="test-prepare-check-item">
+          <div class="test-prepare-check-indicator"></div>
+          <span class="test-prepare-check-text">Lighting: Waiting...</span>
+        </div>
+
+        <div id="checkCamera" class="test-prepare-check-item">
+          <div class="test-prepare-check-indicator"></div>
+          <span class="test-prepare-check-text">Camera: Waiting...</span>
+        </div>
+
+        <div id="checkBodyDetected" class="test-prepare-check-item">
+          <div class="test-prepare-check-indicator"></div>
+          <span class="test-prepare-check-text">Body Detected: Waiting...</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Calibration -->
+    <section class="test-prepare-card">
+      <label for="calibrationHeightInput" class="test-prepare-section-title">Height (for calibration)</label>
+      <div class="test-prepare-input-wrapper">
+        <input type="number" id="calibrationHeightInput" class="test-prepare-input" value="172" aria-label="Calibration Height in cm">
+        <span class="test-prepare-input-suffix">cm</span>
+      </div>
+    </section>
+
+    <!-- Action -->
+    <div class="test-prepare-action-bar">
+      <button id="btnStartCamera" class="test-prepare-btn-primary" disabled>Start Assessment</button>
+    </div>
+
+  </div>
+  <script src="../js/shared.js"></script>
+  <script src="../js/camera-mobile.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
+  <script src="../js/test-prepare.js"></script>
+</body>
+</html>

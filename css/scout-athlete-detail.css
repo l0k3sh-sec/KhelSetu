@@ -1,0 +1,407 @@
+/* Scout Athlete Detail - Screen Specific Styles */
+
+.scout-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.scout-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.scout-detail-back-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-main);
+  font-weight: 600;
+  color: var(--text-body);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.scout-detail-title {
+  font-size: 32px;
+  font-weight: 800;
+  margin: 0;
+  color: var(--text-heading);
+  letter-spacing: -1px;
+}
+
+.scout-detail-title span {
+  color: var(--primary);
+}
+
+.scout-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 1024px) {
+  .scout-detail-grid {
+    grid-template-columns: 350px 1fr;
+  }
+}
+
+.scout-detail-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+  margin-bottom: 24px;
+}
+
+.scout-detail-section-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin: 0 0 20px 0;
+}
+
+.scout-detail-profile-top {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.scout-detail-avatar {
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--border);
+}
+
+.scout-detail-score-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.scout-detail-score-label {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--text-body);
+}
+
+.scout-detail-score {
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.scout-detail-score span {
+  font-size: 20px;
+  color: var(--text-body);
+}
+
+.scout-detail-chart-placeholder {
+  width: 100%;
+  height: 250px;
+  background: var(--bg-main);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scout-detail-placeholder-text {
+  font-size: 14px;
+  color: var(--text-body);
+}
+
+.scout-detail-analysis-block {
+  background-color: var(--purple-bg);
+  border-color: #E9D5FF;
+}
+
+.scout-detail-analysis-block .scout-detail-section-title {
+  color: var(--purple-text);
+}
+
+.scout-detail-analysis-block p {
+  color: var(--purple-text);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.scout-detail-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scout-detail-table th,
+.scout-detail-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.scout-detail-table th {
+  font-weight: 600;
+  color: var(--text-heading);
+  width: 35%;
+}
+
+.scout-detail-results-table th {
+  background: var(--bg-main);
+  border-bottom: 2px solid var(--border);
+}
+
+.scout-detail-results-table td:last-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scout-detail-bar-wrapper {
+  flex-grow: 1;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.scout-detail-bar {
+  height: 100%;
+  background: var(--accent-teal);
+  border-radius: 4px;
+}
+
+.scout-detail-percentile-text {
+  font-weight: 700;
+  color: var(--text-heading);
+  min-width: 40px;
+}
+
+/* --- UPDATED SUGGESTED GAMES SECTION --- */
+.scout-detail-subsection-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-heading);
+  margin: 24px 0 16px 0;
+}
+
+.scout-detail-games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.scout-detail-game-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+
+.scout-detail-game-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+  border-color: var(--primary);
+}
+
+.scout-detail-game-name {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-heading);
+}
+
+.scout-detail-game-match {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.1); 
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+/* --- END UPDATED SUGGESTED GAMES SECTION --- */
+
+.scout-detail-previous-tests-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.scout-detail-previous-test-item {
+  background: var(--bg-main);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scout-detail-previous-test-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.scout-detail-previous-test-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.scout-detail-previous-test-date {
+  font-size: 12px;
+  color: var(--text-body);
+}
+
+.scout-detail-previous-test-score {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.scout-detail-actions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+}
+
+/* Button System */
+.scout-detail-btn-primary,
+.scout-detail-btn-secondary,
+.scout-detail-btn-danger {
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: var(--font-main);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: transform 100ms;
+}
+
+.scout-detail-btn-primary:active,
+.scout-detail-btn-secondary:active,
+.scout-detail-btn-danger:active {
+  transform: scale(0.95);
+}
+
+.scout-detail-btn-primary {
+  background: var(--primary);
+  color: #FFFFFF;
+  border: none;
+}
+
+.scout-detail-btn-primary:hover {
+  background: var(--primary-hover);
+}
+
+.scout-detail-btn-secondary {
+  background: #FFFFFF;
+  color: var(--text-heading);
+  border: 1px solid var(--border);
+}
+
+.scout-detail-btn-secondary:hover {
+  background: var(--bg-main);
+}
+
+.scout-detail-btn-danger {
+  background: #FFFFFF;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  margin-left: auto;
+}
+
+.scout-detail-btn-danger:hover {
+  background: #FEF2F2;
+<<<<<<< HEAD
+}
+
+.scout-detail-rank-badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #B45309;
+  background: rgba(180, 83, 9, 0.08);
+  border: 1px solid rgba(180, 83, 9, 0.25);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+/* ===================== MOBILE RESPONSIVE ===================== */
+@media (max-width: 640px) {
+  .scout-detail-container {
+    padding: 20px 16px;
+  }
+
+  .scout-detail-header {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .scout-detail-title {
+    font-size: 22px;
+    letter-spacing: -0.5px;
+  }
+
+  .scout-detail-card {
+    padding: 16px;
+  }
+
+  .scout-detail-profile-top {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .scout-detail-avatar {
+    width: 88px;
+    height: 88px;
+  }
+
+  .scout-detail-score {
+    font-size: 32px;
+  }
+
+  .scout-detail-table th,
+  .scout-detail-table td {
+    padding: 10px 8px;
+    font-size: 13px;
+    word-break: break-word;
+  }
+
+  .scout-detail-table th {
+    width: 42%;
+  }
+
+  .scout-detail-actions {
+    flex-direction: column;
+    padding: 16px;
+  }
+
+  .scout-detail-btn-primary,
+  .scout-detail-btn-secondary,
+  .scout-detail-btn-danger {
+    width: 100%;
+    margin-left: 0 !important;
+  }
+=======
+>>>>>>> e9199e180df81b64a67cf8fe8546304c2c846031
+}

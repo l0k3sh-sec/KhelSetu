@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu — Leaderboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/athlete-dashboard.css">
+  <link rel="stylesheet" href="../css/leaderboard.css">
+  <link rel="stylesheet" href="../css/notification-panel.css">
+</head>
+<body>
+
+  <div class="leaderboard-page-container">
+    <header class="leaderboard-page-header">
+      <button class="notification-back-btn" id="btnBack" aria-label="Go back">&larr; Back</button>
+      <h1 class="leaderboard-page-title">&#127942; Leaderboard</h1>
+    </header>
+
+    <section class="card my-rank-card" id="myRankCard" style="display:none;">
+      <span class="leaderboard-avatar" id="myRankAvatar"></span>
+      <div class="my-rank-info">
+        <span class="my-rank-name" id="myRankName">You</span>
+        <span class="my-rank-meta">Your current standing</span>
+      </div>
+      <div class="my-rank-figures">
+        <span class="my-rank-position" id="myRankPosition">#--</span>
+        <span class="my-rank-score" id="myRankScore">-- pts</span>
+      </div>
+    </section>
+
+    <section class="card leaderboard-card">
+      <ul class="leaderboard-list" id="leaderboardFullList">
+        <li style="color: var(--text-body); font-size: 14px; text-align: center; padding: 16px 0;">Loading leaderboard...</li>
+      </ul>
+    </section>
+  </div>
+
+  <script src="../js/shared.js"></script>
+  <script type="module" src="../js/leaderboard.js"></script>
+</body>
+</html>

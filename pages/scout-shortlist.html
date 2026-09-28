@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu - Scout Shortlist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/scout-shortlist.css">
+</head>
+<body>
+  
+  <div class="scout-shortlist-container">
+    <!-- Header -->
+    <header class="scout-shortlist-header">
+      <button class="scout-shortlist-back-btn" id="btnBackToDashboard" aria-label="Go back">&larr; Back</button>
+      <h1 class="scout-shortlist-title">Shortlist <span id="shortlistCount">(Loading...)</span></h1>
+    </header>
+
+    <!-- Main Grid -->
+    <main id="shortlistGrid" class="scout-shortlist-grid"></main>
+
+    <!-- Action Footer (Cleaned up dead buttons) -->
+    <footer class="scout-shortlist-actions">
+      <button id="btnExportCsv" class="scout-shortlist-btn-secondary">Export CSV</button>
+      <button id="btnExportPdf" class="scout-shortlist-btn-secondary">Export PDF</button>
+      <div class="scout-shortlist-spacer"></div>
+      <button id="btnClearAllShortlist" class="scout-shortlist-btn-danger">Clear All</button>
+    </footer>
+  </div>
+
+  <script src="../js/shared.js"></script>
+  <script type="module" src="../js/scout-shortlist.js"></script>
+</body>
+</html>

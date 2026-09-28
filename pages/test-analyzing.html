@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu - AI Analysis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <link rel="stylesheet" href="../css/test-analyzing.css">
+</head>
+<body>
+  
+  <div class="test-analyzing-container">
+    
+    <!-- Animated AI Brain Visual -->
+    <div class="test-analyzing-visual">
+      <div class="test-analyzing-brain-ring outer"></div>
+      <div class="test-analyzing-brain-ring inner"></div>
+      <div class="test-analyzing-brain-core">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+        </svg>
+      </div>
+    </div>
+
+    <h1 class="test-analyzing-title">Analyzing your performance...</h1>
+
+    <!-- Progress Bar -->
+    <div class="test-analyzing-progress-wrapper">
+      <div id="analysisProgressBar" class="test-analyzing-progress-fill" style="width: 0%;"></div>
+    </div>
+    <div class="test-analyzing-progress-text">
+      <span id="progressPercentage">0%</span> Complete
+    </div>
+
+    <!-- Processing Steps List -->
+    <div class="test-analyzing-steps-card">
+      <ul class="test-analyzing-steps">
+        
+        <li id="stepProcessingVideo" class="test-analyzing-step status-active">
+          <div class="test-analyzing-step-icon"></div>
+          <span class="test-analyzing-step-label">Processing Video</span>
+          <span class="test-analyzing-step-status">In Progress</span>
+        </li>
+        
+        <li id="stepExtractingLandmarks" class="test-analyzing-step status-pending">
+          <div class="test-analyzing-step-icon"></div>
+          <span class="test-analyzing-step-label">Extracting Landmarks</span>
+          <span class="test-analyzing-step-status">Waiting...</span>
+        </li>
+        
+        <li id="stepCalculatingMetrics" class="test-analyzing-step status-pending">
+          <div class="test-analyzing-step-icon"></div>
+          <span class="test-analyzing-step-label">Calculating Metrics</span>
+          <span class="test-analyzing-step-status">Waiting...</span>
+        </li>
+        
+        <li id="stepGeneratingReport" class="test-analyzing-step status-pending">
+          <div class="test-analyzing-step-icon"></div>
+          <span class="test-analyzing-step-label">Generating Report</span>
+          <span class="test-analyzing-step-status">Waiting...</span>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- Action Button -->
+    <div class="test-analyzing-action">
+      <button id="btnViewResults" class="test-analyzing-btn-primary" disabled>View Results</button>
+    </div>
+
+  </div>
+
+  <script src="../js/shared.js"></script>
+  <script src="../js/test-analyzing.js?v=5"></script>
+</body>
+</html>

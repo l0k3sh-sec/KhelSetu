@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KhelSetu — Democratizing Grassroots Sports</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shared.css">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .landing-container {
+      width: 100%;
+      max-width: 520px;
+      text-align: center;
+    }
+    .landing-brand {
+      margin-bottom: 12px;
+    }
+    .landing-brand .brand-logo-text {
+      font-size: 36px;
+    }
+    .landing-brand .brand-logo-dot {
+      width: 14px;
+      height: 14px;
+    }
+    .landing-tagline {
+      font-size: 18px;
+      color: var(--text-body);
+      margin-bottom: 48px;
+    }
+    .landing-tagline span {
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .role-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .role-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .role-card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 30px rgba(37, 99, 235, 0.1);
+    }
+    .role-card:active {
+      transform: scale(0.98);
+    }
+    .role-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+    .role-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-heading);
+      margin-bottom: 8px;
+    }
+    .role-desc {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+    .landing-footer {
+      margin-top: 48px;
+      font-size: 12px;
+      color: var(--text-body);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="landing-container">
+    <div class="landing-brand">
+      <a href="index.html" class="brand-logo">
+        <span class="brand-logo-text">KhelSetu</span>
+        <span class="brand-logo-dot" aria-hidden="true"></span>
+      </a>
+    </div>
+    <p class="landing-tagline">Democratizing <span>Grassroots Sports</span></p>
+
+    <div class="role-cards">
+      <a href="pages/auth-phone.html" class="role-card" onclick="KhelSetu.saveSession({role:'athlete'})">
+        <div class="role-icon">🏃</div>
+        <h2 class="role-title">I'm an Athlete</h2>
+        <p class="role-desc">Take assessments, track your talent score, and get discovered by scouts.</p>
+      </a>
+
+      <a href="pages/scout-login.html" class="role-card" onclick="KhelSetu.saveSession({role:'scout'})">
+        <div class="role-icon">🔍</div>
+        <h2 class="role-title">I'm a Scout</h2>
+        <p class="role-desc">Search athletes, review performance data, and build your shortlist.</p>
+      </a>
+    </div>
+
+    <footer class="landing-footer">
+<<<<<<< HEAD
+
+=======
+      KhelSetu
+>>>>>>> e9199e180df81b64a67cf8fe8546304c2c846031
+    </footer>
+  </main>
+
+  <script src="js/shared.js"></script>
+  <script type="module" src="script.js"></script>
+</body>
+</html>

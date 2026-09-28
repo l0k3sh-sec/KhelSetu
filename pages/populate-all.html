@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>KhelSetu - Batch Profile Updater</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/shared.css">
+  <style>
+    body { padding: 40px; font-family: 'Plus Jakarta Sans', sans-serif; background: #0F172A; color: #F8FAFC; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+    .card { background: #1E293B; border-radius: 16px; padding: 32px; width: 100%; max-width: 700px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); border: 1px solid #334155; }
+    h2 { margin: 0 0 12px 0; font-weight: 800; font-size: 24px; color: #F8FAFC; }
+    p { color: #94A3B8; font-size: 15px; margin-bottom: 24px; line-height: 1.5; }
+    button { background: #2563EB; color: white; border: none; border-radius: 8px; padding: 16px 24px; font-weight: 700; cursor: pointer; width: 100%; font-size: 16px; transition: background 0.2s; }
+    button:hover:not(:disabled) { background: #1D4ED8; }
+    button:disabled { background: #475569; color: #94A3B8; cursor: not-allowed; }
+    #log { margin-top: 24px; font-family: monospace; font-size: 13px; background: #0B1120; padding: 16px; border-radius: 8px; height: 320px; overflow-y: auto; white-space: pre-wrap; border: 1px solid #334155; color: #10B981; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Populate Athlete Database</h2>
+    <p>
+      This tool will cycle through every athlete in your database and inject 5 to 6 realistic, progressive test attempts alongside synchronized radar charts and AI recommendations.
+    </p>
+    <button id="btnRun">Inject Realistic Data For All Athletes</button>
+    <div id="log">System Ready. Awaiting execution.</div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, doc, writeBatch } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
+    // Your exact Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCXWjlSbvOTQZj_u1ealCsh04nuPdFcp80",
+      authDomain: "khelsetu-cb915.firebaseapp.com",
+      projectId: "khelsetu-cb915",
+      storageBucket: "khelsetu-cb915.firebasestorage.app",
+      messagingSenderId: "671711161753",
+      appId: "1:671711161753:web:5a091eb5f43bcf38753708"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const logEl = document.getElementById("log");
+
+    function log(msg) {
+      logEl.textContent += `\n> ${msg}`;
+      logEl.scrollTop = logEl.scrollHeight;
+    }
+
+    // Helper to generate dates looking backwards
+    const getDaysAgo = (days) => new Date(Date.now() - days * 86400000).toISOString().split('T')[0];
+
+    // 5 distinct physical archetypes with progressive history
+    const ARCHETYPES = [
+      {
+        tier: "Elite All-Rounder",
+        raw: { squats: 52, verticalJumpCm: 76, sideLunges: 38, jumpingJacks: 85, pushups: 46 },
+        spider: { explosive: 94, agility: 92, strength: 90, speed: 95, endurance: 88 },
+        overall: 92,
+        badge: "Platinum",
+        sports: [
+          { sport: "Football", matchPercent: 93, environment: "outdoor" },
+          { sport: "Basketball", matchPercent: 91, environment: "indoor" },
+          { sport: "Athletics", matchPercent: 89, environment: "outdoor" }
+        ],
+        text: "Elite physical profile. Exceptional lower-body elasticity (76cm jump) and muscular stamina across all five test parameters.",
+        history: [
+            { attemptId: "att_1", date: getDaysAgo(120), talentScore: 78, status: "completed" },
+            { attemptId: "att_2", date: getDaysAgo(90), talentScore: 82, status: "completed" },
+            { attemptId: "att_3", date: getDaysAgo(60), talentScore: 85, status: "completed" },
+            { attemptId: "att_4", date: getDaysAgo(30), talentScore: 89, status: "completed" },
+            { attemptId: "att_5", date: getDaysAgo(5), talentScore: 92, status: "completed" }
+        ]
+      },
+      {
+        tier: "Explosive Sprinter",
+        raw: { squats: 42, verticalJumpCm: 68, sideLunges: 34, jumpingJacks: 78, pushups: 32 },
+        spider: { explosive: 86, agility: 84, strength: 74, speed: 89, endurance: 78 },
+        overall: 82,
+        badge: "Platinum",
+        sports: [
+          { sport: "Athletics", matchPercent: 88, environment: "outdoor" },
+          { sport: "Football", matchPercent: 85, environment: "outdoor" },
+          { sport: "Badminton", matchPercent: 82, environment: "both" }
+        ],
+        text: "High burst-speed and vertical power. Lateral shift times indicate rapid deceleration and acceleration mechanics.",
+        history: [
+            { attemptId: "att_1", date: getDaysAgo(150), talentScore: 65, status: "completed" },
+            { attemptId: "att_2", date: getDaysAgo(110), talentScore: 70, status: "completed" },
+            { attemptId: "att_3", date: getDaysAgo(75), talentScore: 75, status: "completed" },
+            { attemptId: "att_4", date: getDaysAgo(40), talentScore: 78, status: "completed" },
+            { attemptId: "att_5", date: getDaysAgo(15), talentScore: 80, status: "completed" },
+            { attemptId: "att_6", date: getDaysAgo(2), talentScore: 82, status: "completed" }
+        ]
+      },
+      {
+        tier: "Endurance & Workhorse",
+        raw: { squats: 48, verticalJumpCm: 48, sideLunges: 30, jumpingJacks: 82, pushups: 36 },
+        spider: { explosive: 65, agility: 75, strength: 78, speed: 82, endurance: 90 },
+        overall: 78,
+        badge: "Gold",
+        sports: [
+          { sport: "Cycling", matchPercent: 84, environment: "outdoor" },
+          { sport: "Kabaddi", matchPercent: 80, environment: "both" },
+          { sport: "Hockey", matchPercent: 79, environment: "outdoor" }
+        ],
+        text: "Strong aerobic foundation and muscular endurance. Maintains stable cadence with steady pushup output.",
+        history: [
+            { attemptId: "att_1", date: getDaysAgo(100), talentScore: 68, status: "completed" },
+            { attemptId: "att_2", date: getDaysAgo(80), talentScore: 71, status: "completed" },
+            { attemptId: "att_3", date: getDaysAgo(50), talentScore: 74, status: "completed" },
+            { attemptId: "att_4", date: getDaysAgo(25), talentScore: 76, status: "completed" },
+            { attemptId: "att_5", date: getDaysAgo(1), talentScore: 78, status: "completed" }
+        ]
+      },
+      {
+        tier: "Intermediate Athlete",
+        raw: { squats: 30, verticalJumpCm: 45, sideLunges: 22, jumpingJacks: 54, pushups: 22 },
+        spider: { explosive: 58, agility: 60, strength: 56, speed: 64, endurance: 62 },
+        overall: 60,
+        badge: "Silver",
+        sports: [
+          { sport: "Cricket", matchPercent: 66, environment: "outdoor" },
+          { sport: "Volleyball", matchPercent: 62, environment: "both" },
+          { sport: "Table Tennis", matchPercent: 61, environment: "indoor" }
+        ],
+        text: "Balanced baseline profile. Shows good movement competence with room for explosive power and upper-body progression.",
+        history: [
+            { attemptId: "att_1", date: getDaysAgo(90), talentScore: 48, status: "completed" },
+            { attemptId: "att_2", date: getDaysAgo(70), talentScore: 52, status: "completed" },
+            { attemptId: "att_3", date: getDaysAgo(45), talentScore: 56, status: "completed" },
+            { attemptId: "att_4", date: getDaysAgo(20), talentScore: 58, status: "completed" },
+            { attemptId: "att_5", date: getDaysAgo(4), talentScore: 60, status: "completed" }
+        ]
+      },
+      {
+        tier: "Developing Beginner",
+        raw: { squats: 18, verticalJumpCm: 32, sideLunges: 14, jumpingJacks: 36, pushups: 12 },
+        spider: { explosive: 38, agility: 42, strength: 36, speed: 45, endurance: 40 },
+        overall: 40,
+        badge: "Silver",
+        sports: [
+          { sport: "Table Tennis", matchPercent: 48, environment: "indoor" },
+          { sport: "Archery", matchPercent: 46, environment: "outdoor" },
+          { sport: "Cricket", matchPercent: 44, environment: "outdoor" }
+        ],
+        text: "Developing foundation. Focus on core stability, knee-tracking during squats, and plyometric jump landing mechanics.",
+        history: [
+            { attemptId: "att_1", date: getDaysAgo(60), talentScore: 28, status: "completed" },
+            { attemptId: "att_2", date: getDaysAgo(45), talentScore: 32, status: "completed" },
+            { attemptId: "att_3", date: getDaysAgo(30), talentScore: 35, status: "completed" },
+            { attemptId: "att_4", date: getDaysAgo(14), talentScore: 38, status: "completed" },
+            { attemptId: "att_5", date: getDaysAgo(2), talentScore: 40, status: "completed" }
+        ]
+      }
+    ];
+
+    document.getElementById("btnRun").addEventListener("click", async () => {
+      const btn = document.getElementById("btnRun");
+      btn.disabled = true;
+      btn.textContent = "Processing Database...";
+      log("Connecting to Firestore 'athletes' collection...");
+
+      try {
+        const athletesRef = collection(db, "athletes");
+        const snapshot = await getDocs(athletesRef);
+
+        if (snapshot.empty) {
+          log("No athlete documents found in Firestore.");
+          btn.disabled = false;
+          btn.textContent = "Run Again";
+          return;
+        }
+
+        log(`Found ${snapshot.size} athletes. Preparing batch update...`);
+        
+        // Split updates into chunks of 450 to respect Firestore's 500-write batch limit
+        const chunkedDocs = [];
+        let currentChunk = [];
+        snapshot.docs.forEach((doc, idx) => {
+          currentChunk.push(doc);
+          if (currentChunk.length === 450 || idx === snapshot.docs.length - 1) {
+            chunkedDocs.push(currentChunk);
+            currentChunk = [];
+          }
+        });
+
+        let index = 0;
+        
+        for (const chunk of chunkedDocs) {
+          const batch = writeBatch(db);
+          
+          chunk.forEach((athleteDoc) => {
+            const athleteId = athleteDoc.id;
+            const athleteName = athleteDoc.data()?.personalInfo?.fullName || "Athlete";
+            
+            // Cycle through archetypes
+            const archetype = ARCHETYPES[index % ARCHETYPES.length];
+            index++;
+
+            const athleteRef = doc(db, "athletes", athleteId);
+            batch.update(athleteRef, {
+              "rawMetrics": archetype.raw,
+              "aiAnalysis.rawMetrics": archetype.raw,
+              "aiAnalysis.spiderChart": archetype.spider,
+              "aiAnalysis.sportRecommendations": archetype.sports,
+              "aiAnalysis.analysisText": archetype.text,
+              "talentScore.overall": archetype.overall,
+              "talentScore.badge": archetype.badge,
+              "testHistory": archetype.history
+            });
+
+            log(`Prepared: ${athleteName} -> ${archetype.tier} (${archetype.history.length} attempts)`);
+          });
+          
+          log("Committing batch chunk to database...");
+          await batch.commit();
+        }
+
+        log("SUCCESS! All athlete profiles updated seamlessly.");
+        btn.textContent = "All Athletes Updated!";
+      } catch (err) {
+        console.error(err);
+        log(`ERROR: ${err.message}`);
+        btn.disabled = false;
+        btn.textContent = "Retry Update";
+      }
+    });
+  </script>
+</body>
+</html>
